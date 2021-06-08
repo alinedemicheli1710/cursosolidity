@@ -1,0 +1,80 @@
+// SPDX-License-Identifier: CC-BY-4.0
+
+pragma solidity 0.8.4;
+
+contract CursoDeSolidity{
+    
+    //Contrato aplicavel para um curso de Solidity
+    
+    struct Aluno {
+        string nomeAluno;
+        string sobrenomeAluno;
+        uint256 idadeAluno;
+        address payable CarteiraAluno;
+        uint256 notaFinal;
+        uint constant notaminima;
+    }
+    
+    struct Professor {
+        string nomeProfessor;
+        string sobrenomeProfessor;    
+        uint256 idadeProfessor;
+        address payable CarteiraProfessor;
+    }
+
+ 
+    mapping (uint => string) public listaAlunos;
+    
+    mapping (uint => Aula) public aulas;
+    
+     struct Aula {
+        string _nomedaaula;
+        string _datadaaula;
+    }
+    
+    constructor() public {
+    listaAlunos[1] = "Alana";
+    listaAlunos[2] = "Bruno";
+    listaAlunos[3] = "Carla";
+    listaAlunos[4] = "Daniel";
+    }
+    
+        function addAula(uint _id, string memory _nomedaaula, string memory _datadaaula) public {
+        aulas[_id] = Aula(_nomedaaula, _datadaaula);
+
+    }
+
+    uint[] public numeroDeAlunosPresentesnaAula = [4,3,4];
+    string[] public provasAplicadas = ["blockchain", "ethereum", "solidity"];
+    string[] public bibliografia;
+   
+   function addBibliografia(string memory _bibliografia) public {
+    bibliografia.push(_bibliografia);
+   }
+   
+    function quantidadeBibliografia() public view returns(uint) {
+        return bibliografia.length;
+    }
+   
+   event Diploma (string nomeAluno, uint notaminima);
+   
+  function finalizaCurso() public somenteProfessor {
+       
+        require(block.timestamp >= prazoCurso, "Curso em andamento.");
+        require(!encerrado, "Curso encerrado.");
+    
+  
+       function aprovacao (uint notaAprovacao) 
+   public
+    pure
+    returns (bool resposta) {
+        if (notafinal <= notaminima) {
+            return true;
+        } else {
+            return false;
+        }
+    
+    address payable enderecoCarteiraProfessor;
+   
+    }
+}
